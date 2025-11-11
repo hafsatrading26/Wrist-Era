@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wrist Era</title>
+  <style>
+    :root{
+      --bg:#071540; /* deep dark blue */
+      --accent:#0f6be0; /* brighter blue */
+      --glass: rgba(255,255,255,0.06);
+      --text:#eaf2ff;
+    }
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Arial; background:var(--bg); color:var(--text)}
+
+    /* full centered layout */
+    .wrap{
+      min-height:100%;display:flex;align-items:center;justify-content:center;padding:40px;box-sizing:border-box;position:relative;overflow:hidden;
+    }
+
+    /* subtle radial glow behind center */
+    .wrap::before{
+      content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(600px 400px at 50% 45%, rgba(15,107,224,0.09), transparent 20%);
+    }
+
+    .card{
+      width:100%;max-width:980px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:18px;padding:60px 40px;box-shadow:0 10px 40px rgba(2,8,23,0.6);backdrop-filter: blur(6px);position:relative;overflow:visible;display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:center;
+    }
+
+    /* Brand column */
+    .brand{
+      text-align:center;position:relative;padding:10px 20px;
+    }
+
+    /* Main title - vibrate animation */
+    .title{
+      font-size:72px;line-height:0.9;margin:0;font-weight:800;letter-spacing:1px;color:var(--text);display:inline-block;
+      text-transform:uppercase;
+      transform-origin:center;
+      animation: vibrate 0.08s linear infinite;
+    }
+
+    @keyframes vibrate{
+      0%{transform:translateX(0) rotate(0deg)}
+      25%{transform:translateX(-2px) rotate(-0.5deg)}
+      50%{transform:translateX(1px) rotate(0.3deg)}
+      75%{transform:translateX(-1px) rotate(-0.2deg)}
+      100%{transform:translateX(0) rotate(0deg)}
+    }
+
+    .subtitle{margin-top:12px;color:rgba(234,242,255,0.7);font-size:15px}
+
+    /* Decorative scratched watches around */
+    .decors{
+      position:absolute;inset:0;pointer-events:none;z-index:0;
+    }
+    /* small SVG watches placed around */
+    svg.watch{
+      position:absolute;width:180px;height:180px;opacity:0.14;filter:drop-shadow(0 6px 22px rgba(0,0,0,0.5));
+    }
+
+    /* right column: contact */
+    .contact{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);z-index:2;color:var(--text);
+    }
+    .contact h3{margin:0 0 12px 0;font-size:18px}
+    .contact p{margin:8px 0;font-size:15px;word-break:break-word}
+    .muted{opacity:0.8;font-size:13px}
+
+    .contact a{color:var(--accent);text-decoration:none;font-weight:600}
+
+    /* location pinned on the far right outside the card */
+    .location{
+      position:absolute;right:18px;bottom:18px;background:rgba(255,255,255,0.03);padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);font-size:13px;color:var(--text);z-index:3;backdrop-filter: blur(6px);
+    }
+
+    /* responsive */
+    @media (max-width:880px){
+      .card{grid-template-columns:1fr;max-width:720px;padding:44px}
+      .title{font-size:48px}
+      svg.watch{width:120px;height:120px}
+      .location{right:12px;left:12px}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="brand">
+        <h1 class="title">Wrist Era</h1>
+        <div class="subtitle">Premium imported watches — crafted with character</div>
+      </div>
+
+      <aside class="contact">
+        <h3>Contact</h3>
+        <p class="muted">Phone:</p>
+        <p><a href="tel:+8801854022486">+880 1854-022486</a></p>
+        <p class="muted">Email:</p>
+        <p><a href="mailto:wristera06@gmail.com">wristera06@gmail.com</a></p>
+        <div style="height:6px"></div>
+        <p class="muted">Location:</p>
+        <p>Nikunja, Khilkhet, Dhaka</p>
+      </aside>
+
+      <!-- decorative scratched watch svgs (not photos) -->
+      <div class="decors" aria-hidden="true">
+        <!-- top-left -->
+        <svg class="watch" style="top:-30px;left:-40px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="white" stroke-width="3">
+            <circle cx="100" cy="100" r="54" stroke-opacity="0.12" />
+            <rect x="86" y="18" width="28" height="30" rx="4" stroke-opacity="0.08" />
+            <rect x="86" y="150" width="28" height="30" rx="4" stroke-opacity="0.08" />
+            <!-- scratch lines -->
+            <path d="M40 60 C60 50, 90 55, 120 45" stroke-opacity="0.12" />
+            <path d="M55 120 C80 115, 110 120, 140 110" stroke-opacity="0.12" />
+            <circle cx="100" cy="100" r="6" stroke-opacity="0.12" />
+          </g>
+        </svg>
+
+        <!-- bottom-right -->
+        <svg class="watch" style="bottom:-40px;right:-40px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="white" stroke-width="3">
+            <circle cx="100" cy="100" r="48" stroke-opacity="0.10" />
+            <rect x="70" y="8" width="60" height="24" rx="6" stroke-opacity="0.06" />
+            <rect x="70" y="168" width="60" height="24" rx="6" stroke-opacity="0.06" />
+            <path d="M30 80 C60 70, 90 72, 130 64" stroke-opacity="0.10" />
+            <path d="M60 140 C82 135, 110 138, 150 132" stroke-opacity="0.10" />
+            <circle cx="100" cy="100" r="5" stroke-opacity="0.10" />
+          </g>
+        </svg>
+
+        <!-- mid-right smaller -->
+        <svg class="watch" style="top:20%;right:12%" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="white" stroke-width="2.5">
+            <circle cx="100" cy="100" r="42" stroke-opacity="0.09" />
+            <path d="M65 60 L135 60" stroke-opacity="0.08" />
+            <path d="M60 140 L140 140" stroke-opacity="0.08" />
+            <path d="M80 85 C95 80, 110 82, 125 78" stroke-opacity="0.09" />
+          </g>
+        </svg>
+      </div>
+
+    </div>
+
+    <div class="location">Location: Nikunja, Khilkhet, Dhaka</div>
+  </div>
+
+  <script>
+    // subtle pulse on brand when visible
+    const title = document.querySelector('.title');
+    // increase intensity when mouse over
+    title.addEventListener('mouseenter', ()=>{ title.style.animation = 'vibrate 0.03s linear infinite'; });
+    title.addEventListener('mouseleave', ()=>{ title.style.animation = 'vibrate 0.08s linear infinite'; });
+  </script>
+</body>
+</html>
